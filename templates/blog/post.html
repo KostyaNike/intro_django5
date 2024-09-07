@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bolg</title>
+    <style> /* я не знаю чому по іншому не працює */
+        body {
+            margin:0;
+            margin-top: 20px;
+            background-color: rgb(34, 34, 34);
+        }
+
+        .blog>h1 {
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom-style: solid;
+            font-size: 100px;
+        }
+        
+        .post {
+            width:70%;
+            background-color: rgb(61, 61, 61);
+            border-style: solid;
+            border-color:black;
+            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+            padding-top: 0px;
+        }
+
+        .post-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-style: solid;
+        }
+
+        .credit {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: rgb(22, 22, 22);
+        }
+
+        ::-webkit-scrollbar {
+            background-color: rgb(50, 50, 50);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(15, 15, 15);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="blog">
+        <h1>Мій блог!</h1>
+        {% for post in posts %}
+
+            <div class="post">
+                <div class="post-title">
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.published_date }}</p>
+                </div>
+                <p>{{ post.content }}</p>
+            </div>
+
+        {% endfor %}
+
+        <div class="credit">
+            <a href="https://github.com/13max11/mb" target="_blank"><p>created by my</p> </a>
+        </div>
+    </div>
+</body>
+</html>
