@@ -14,3 +14,15 @@ def Posts(request):
         'blog/post.html',
         context=context,
     )
+
+def post_detail(request, pk):
+    post = Post.objects.get(id=pk)
+    context = {
+        'post': post,
+        'published_recently': post.published_recently()
+    }
+
+    return render(
+    request, 'blog/post_detail.html', 
+    context=context,
+    )
